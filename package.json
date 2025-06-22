@@ -9,7 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@schedule-x/calendar": "^2.32.0",
+    "@schedule-x/theme-default": "^2.32.0",
+    "@schedule-x/vue": "^2.30.0",
+    "@supabase/supabase-js": "^2.50.0",
     "@tailwindcss/vite": "^4.1.10",
+    "qalendar": "^3.9.0",
     "tailwindcss": "^4.1.10",
     "vue": "^3.5.13"
   },
