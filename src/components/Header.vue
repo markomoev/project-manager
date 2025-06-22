@@ -17,9 +17,9 @@ onMounted(() => {
 // Show popup
 const popupStatus = ref();
 
-function togglePopup() {
+const togglePopup = () => {
   popupStatus.value = ref(true);
-}
+};
 </script>
 
 <template>

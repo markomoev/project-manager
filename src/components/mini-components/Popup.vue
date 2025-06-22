@@ -25,17 +25,22 @@ onMounted(() => {
   }
 });
 
-const addProject = () => {
-  project.value = {
-    id: Date.now(),
-    name: taskName,
-    description: description,
-    inProgress: inProgress,
-    completed: completed,
-    link: link,
-  };
-  console.log(project);
-  emit("close");
+const addProject = async () => {
+  try {
+    project.value = await {
+      id: Date.now(),
+      name: taskName,
+      description: description,
+      inProgress: inProgress,
+      completed: completed,
+      link: link,
+    };
+
+    console.log(project);
+    emit("close");
+  } catch (error) {
+    console.log("Oops! Something went wrong! Error details:" + errror);
+  }
 };
 
 // Saving the object in the localStorage
