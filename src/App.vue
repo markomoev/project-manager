@@ -1,7 +1,12 @@
 <script setup>
 import Header from "./components/Header.vue";
-import Popup from "./components/mini-components/Popup.vue";
 import ProjectsContainer from "./components/ProjectsContainer.vue";
+import { ref } from "vue";
+
+const projectContainerRef = ref(null);
+function handleProjectAdded() {
+  projectContainerRef.value?.addToList();
+}
 </script>
 
 <template>

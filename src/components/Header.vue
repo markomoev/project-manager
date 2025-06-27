@@ -23,25 +23,26 @@ const togglePopup = () => {
 </script>
 
 <template>
-  <div
-    class="inline-flex items-center gap-0 text-emerald-50 border-b border-solid border-zinc-800"
+  <header
+    class="flex items-center justify-between px-6 py-4 bg-neutral-900 border-b border-zinc-800 shadow"
   >
-    <h1 class="ml-[1%] m-[0.8%] text-2xl font-bold">
-      Welcome,
-      <input
-        v-model="username"
-        class="bg-transparent border-none focus:outline-none focus:ring-0"
-        placeholder="Enter your name"
-      />
-    </h1>
-
+    <div class="flex items-center gap-3 ml-[15%]">
+      <h1 class="text-2xl font-bold text-emerald-200">
+        Welcome,
+        <input
+          v-model="username"
+          class="bg-transparent text-emerald-100 font-semibold px-2 py-1 ml-2 focus:outline-none placeholder:text-emerald-300"
+          placeholder="Enter your name"
+        />
+      </h1>
+    </div>
     <button
-      class="ml-[50%] p-[0.30%] pl-[0.7%] pr-[0.7%] flex items-center justify-center bg-zinc-800 cursor-pointer text-emerald-50 text-xl font-mono rounded-xl hover:bg-zinc-700 hover:text-green-300"
+      class="bg-green-200 mr-[15%] hover:bg-green-300 text-green-900 text-base font-medium rounded-lg px-5 py-2 transition-shadow border border-green-300 shadow-none"
       @click="togglePopup"
+      title="Add Project"
     >
-      +
+      Add Project
     </button>
-
     <Popup v-if="popupStatus" @close="popupStatus = false" />
-  </div>
+  </header>
 </template>
