@@ -31,7 +31,7 @@ defineExpose({ addToList });
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-4 w-full">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full px-4">
     <ProjectCard v-for="id in projectIds" :key="id" :projectId="id" />
   </div>
 </template>

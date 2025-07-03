@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { readonly, ref } from "vue";
 
 // Exporting the close emit to the Header
 const emit = defineEmits(["close", "project-added"]);
@@ -37,10 +37,6 @@ const addProject = async () => {
     emit("close");
     emit("project-added");
     window.dispatchEvent(new Event("project-added"));
-
-    if (description.value.length > 10) {
-      console.log("make it shorter");
-    }
   } catch (error) {
     console.log("Oops! Something went wrong! Error details:" + error);
   }
@@ -67,7 +63,13 @@ const addProject = async () => {
         type="text"
         v-model="taskName"
         placeholder="e.g. Task Manager"
-        class="w-full bg-zinc-800 text-green-50 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 placeholder:text-green-200"
+        :class="[
+          'w-full bg-zinc-800 text-green-50 px-4 py-2 rounded-lg border-2 focus:outline-none focus:ring-2 placeholder:text-green-200 transition',
+          taskName.length === 25
+            ? 'border-red-500 focus:ring-red-400'
+            : 'border-green-400 focus:ring-green-400',
+        ]"
+        @input="if (taskName.length > 25) taskName = taskName.slice(0, 25);"
       />
 
       <input
@@ -75,11 +77,14 @@ const addProject = async () => {
         v-model="description"
         placeholder="Write a description"
         :class="[
-          'w-full bg-zinc-800 text-green-50 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 placeholder:text-green-200 transition',
-          description.value?.length > 10
-            ? 'border-2 border-red-500 focus:ring-red-400'
-            : 'focus:ring-green-400 border-2 border-zinc-800',
+          'w-full bg-zinc-800 text-green-50 px-4 py-2 rounded-lg border-2 focus:outline-none focus:ring-2 placeholder:text-green-200 transition',
+          description.length === 150
+            ? 'border-red-500 focus:ring-red-400'
+            : 'border-green-400 focus:ring-green-400',
         ]"
+        @input="
+          if (description.length > 150) description = description.slice(0, 150);
+        "
       />
 
       <div class="bg-zinc-800 rounded-lg p-3 text-green-50">

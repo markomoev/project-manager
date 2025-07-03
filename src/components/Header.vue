@@ -37,7 +37,7 @@ const togglePopup = () => {
       </h1>
     </div>
     <button
-      class="bg-green-200 mr-[15%] hover:bg-green-300 text-green-900 text-base font-medium rounded-lg px-5 py-2 transition-shadow border border-green-300 shadow-none"
+      class="bg-green-200 mr-[15%] cursor-pointer hover:bg-green-300 text-green-900 text-base font-medium rounded-lg px-5 py-2 transition-shadow border border-green-300 shadow-none"
       @click="togglePopup"
       title="Add Project"
     >
