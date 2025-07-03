@@ -1,5 +1,50 @@
-# Vue 3 + Vite
+# Project Manager
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A modern, responsive project management app built with **Vue 3** and **Vite**.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Features
+
+- Add, view, and manage projects
+- Responsive card layout (up to 4 per row on desktop, fully mobile-friendly)
+- 3D hover effects for project cards
+- Status indicator and link for each project
+- Data persistence using localStorage
+
+## Tech Stack
+
+- [Vue 3](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Getting Started
+
+1. **Install dependencies:**
+
+   ```sh
+   npm install
+   ```
+
+2. **Run the development server:**
+
+   ```sh
+   npm run dev
+   ```
+
+3. **Build for production:**
+   ```sh
+   npm run build
+   ```
+
+## Usage
+
+- Click "Add Project" to create a new project card.
+- Each card shows the project name, description, status, and a link.
+- Cards are stored in your browser’s localStorage.
+
+## License
+
+MIT
+
+---
+
+\*Made with Vue 3 + Vite
