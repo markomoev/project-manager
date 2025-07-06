@@ -24,25 +24,40 @@ const togglePopup = () => {
 
 <template>
   <header
-    class="flex items-center justify-between px-6 py-4 bg-neutral-900 border-b border-zinc-800 shadow"
+    class="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0 px-4 sm:px-6 py-4 bg-neutral-900 border-b border-zinc-800 shadow"
   >
-    <div class="flex items-center gap-3 ml-[15%]">
-      <h1 class="text-2xl font-bold text-emerald-200">
-        Welcome,
-        <input
-          v-model="username"
-          class="bg-transparent text-emerald-100 font-semibold px-2 py-1 ml-2 focus:outline-none placeholder:text-emerald-300"
-          placeholder="Enter your name"
-        />
-      </h1>
-    </div>
-    <button
-      class="bg-green-200 mr-[15%] cursor-pointer hover:bg-green-300 text-green-900 text-base font-medium rounded-lg px-5 py-2 transition-shadow border border-green-300 shadow-none"
-      @click="togglePopup"
-      title="Add Project"
+    <!-- Heading + Input container -->
+    <div
+      class="w-full sm:w-auto flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-2 sm:gap-3 text-center sm:text-left"
+      :class="{
+        'ml-0': true,
+        'sm:ml-[15%]': true,
+      }"
     >
-      Add Project
-    </button>
+      <h1 class="text-xl sm:text-2xl font-bold text-emerald-200">
+        Welcome<span class="hidden sm:inline">,</span>
+      </h1>
+      <!-- Input shown separately on mobile, inline on desktop -->
+      <input
+        v-model="username"
+        class="bg-transparent text-emerald-100 font-semibold px-2 py-1 mt-1 sm:mt-0 sm:ml-2 focus:outline-none placeholder:text-emerald-300 text-center text-lg sm:text-base sm:text-left"
+        placeholder="Enter your name"
+      />
+    </div>
+
+    <!-- Button container -->
+    <div
+      class="w-full sm:w-auto sm:mr-[15%] flex justify-center sm:justify-end"
+    >
+      <button
+        class="w-full sm:w-auto bg-green-200 cursor-pointer hover:bg-green-300 text-green-900 text-base font-medium rounded-lg px-5 py-2 transition-shadow border border-green-300 shadow-none"
+        @click="togglePopup"
+        title="Add Project"
+      >
+        Add Project
+      </button>
+    </div>
+
     <Popup v-if="popupStatus" @close="popupStatus = false" />
   </header>
 </template>

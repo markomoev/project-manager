@@ -92,7 +92,7 @@ const handleOpenPopup = () => {
           :href="project.link"
           target="_blank"
           rel="noopener noreferrer"
-          class="block w-full bg-transparent border-green-400 text-green-200 text-base px-1 py-1 focus:outline-none transition placeholder:text-green-300 cursor-pointer hover:border-green-300 break-all"
+          class="block w-full bg-transparent border-green-400 text-green-200 text-base px-1 py-1 focus:outline-none transition placeholder:text-green-300 cursor-pointer sm:hover:border-green-300 break-all"
         >
           {{ project.link }}
         </a>
@@ -106,7 +106,7 @@ const handleOpenPopup = () => {
 
       <div class="open-btn">
         <button
-          class="share-btn mt-[7%] flex items-center justify-center rounded-xl cursor-pointer bg-neutral-800 p-2 transition-all duration-200 hover:bg-green-500/10 hover:border-green-300 hover:scale-105 focus:outline-none"
+          class="share-btn mt-[7%] flex items-center justify-center rounded-xl bg-neutral-800 p-2 transition-all duration-200 sm:hover:bg-green-500/10 sm:hover:border-green-300 sm:hover:scale-105 sm:focus:outline-none"
           aria-label="Share project"
           @click="handleOpenPopup"
         >
@@ -125,11 +125,11 @@ const handleOpenPopup = () => {
       </div>
     </div>
   </div>
+
   <ProjectCardPopup v-if="cardPopupStatus" />
 </template>
 
 <style scoped>
-/* In <style scoped> of ProjectCard.vue */
 .card-3d {
   background: #262626;
   width: 100%;
@@ -150,39 +150,32 @@ const handleOpenPopup = () => {
   height: 100%;
 }
 
+/* 🔁 Responsive adjustments */
 @media (max-width: 1024px) {
   .card-3d {
     max-width: 48vw;
     padding: 1.2rem;
   }
-}
-@media (max-width: 640px) {
-  .card-3d {
-    max-width: 98vw;
-    padding: 1rem;
-    margin-top: 1rem;
-  }
-}
-.card-3d:hover {
-  transform: perspective(800px) rotateY(8deg) rotateX(4deg) scale(1.04);
-  box-shadow: 0 12px 32px #0005, 0 2px 8px #22c55e55;
-  z-index: 10;
-}
-.card-3d:active {
-  transform: perspective(800px) rotateY(-4deg) rotateX(-2deg) scale(0.98);
 }
 
-@media (max-width: 1024px) {
-  .card-3d {
-    max-width: 48vw;
-    padding: 1.2rem;
-  }
-}
 @media (max-width: 640px) {
   .card-3d {
     max-width: 98vw;
     padding: 1rem;
     margin-top: 1rem;
+  }
+}
+
+/* ✨ Hover and active effects only for non-phone screens */
+@media (min-width: 641px) {
+  .card-3d:hover {
+    transform: perspective(800px) rotateY(8deg) rotateX(4deg) scale(1.04);
+    box-shadow: 0 12px 32px #0005, 0 2px 8px #22c55e55;
+    z-index: 10;
+  }
+
+  .card-3d:active {
+    transform: perspective(800px) rotateY(-4deg) rotateX(-2deg) scale(0.98);
   }
 }
 </style>

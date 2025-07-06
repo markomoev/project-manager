@@ -43,7 +43,9 @@ defineExpose({ addToList });
 </script>
 
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full px-4">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full max-w-screen-xl mx-auto px-4 py-6"
+  >
     <ProjectCard
       v-for="id in projectIds"
       :key="id"
