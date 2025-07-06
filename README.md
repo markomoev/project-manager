@@ -44,5 +44,5 @@ A modern, responsive project management app built with **Vue 3** and **Vite**.
 
 ## Versions
 
-1.0 - Functional project adding button with list for container
-1.1 - View project details button (Popup for every project added)
+- 1.0 - Functional project adding button with list for container
+- 1.1 - View project details button (Popup for every project added)
