@@ -1,15 +1,16 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import ProjectCardPopup from "./ProjectCardPopup.vue";
 
-// Получаваме пропса с ID-то на проекта
+//Getting the project Id
 const props = defineProps({
   projectId: String,
 });
 
-// Дефинираме референция за проекта
+// Defining project
 const project = ref(null);
 
-// Зареждаме проекта от localStorage
+// Loading the project on localStorage
 onMounted(() => {
   console.log("Loading project with ID:", props.projectId);
   const data = localStorage.getItem(`project-${props.projectId}`);
@@ -19,7 +20,7 @@ onMounted(() => {
   }
 });
 
-// Правим статута на задачата
+// Project status
 
 const projectStatus = computed(() => {
   if (!project.value) return "";
@@ -29,6 +30,12 @@ const projectStatus = computed(() => {
     return "Completed";
   }
 });
+
+// Toggle Card Popup
+const emit = defineEmits(["open"]);
+const handleOpenPopup = () => {
+  emit("open", props.projectId);
+};
 </script>
 
 <template>
@@ -96,8 +103,29 @@ const projectStatus = computed(() => {
           https://yourproject.com
         </span>
       </div>
+
+      <div class="open-btn">
+        <button
+          class="share-btn mt-[7%] flex items-center justify-center rounded-xl cursor-pointer bg-neutral-800 p-2 transition-all duration-200 hover:bg-green-500/10 hover:border-green-300 hover:scale-105 focus:outline-none"
+          aria-label="Share project"
+          @click="handleOpenPopup"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#b9f8cf"
+            width="1.7rem"
+            height="1.7rem"
+            viewBox="0 -32 576 576"
+          >
+            <path
+              d="M527.9 224H480v-48c0-26.5-21.5-48-48-48H272l-64-64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h400c16.5 0 31.9-8.5 40.7-22.6l79.9-128c20-31.9-3-73.4-40.7-73.4zM48 118c0-3.3 2.7-6 6-6h134.1l64 64H426c3.3 0 6 2.7 6 6v42H152c-16.8 0-32.4 8.8-41.1 23.2L48 351.4zm400 282H72l77.2-128H528z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
+  <ProjectCardPopup v-if="cardPopupStatus" />
 </template>
 
 <style scoped>
@@ -121,6 +149,7 @@ const projectStatus = computed(() => {
   flex-direction: column;
   height: 100%;
 }
+
 @media (max-width: 1024px) {
   .card-3d {
     max-width: 48vw;
