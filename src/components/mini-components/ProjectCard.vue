@@ -49,7 +49,7 @@ const handleOpenPopup = () => {
       :placeholder="'Project name'"
       rows="1"
       wrap="soft"
-    />
+    ></textarea>
 
     <div class="relative">
       <textarea
@@ -106,7 +106,7 @@ const handleOpenPopup = () => {
 
       <div class="open-btn">
         <button
-          class="share-btn mt-[7%] flex items-center justify-center rounded-xl bg-neutral-800 p-2 transition-all duration-200 sm:hover:bg-green-500/10 sm:hover:border-green-300 sm:hover:scale-105 sm:focus:outline-none"
+          class="cursor-pointer share-btn mt-[7%] flex items-center justify-center rounded-xl bg-neutral-800 p-2 transition-all duration-200 sm:hover:bg-green-500/10 sm:hover:border-green-300 sm:hover:scale-105 sm:focus:outline-none"
           aria-label="Share project"
           @click="handleOpenPopup"
         >
@@ -126,7 +126,10 @@ const handleOpenPopup = () => {
     </div>
   </div>
 
-  <ProjectCardPopup v-if="cardPopupStatus" />
+  <ProjectCardPopup
+    v-if="cardPopupStatus"
+    @del="() => emit('del', props.projectId)"
+  />
 </template>
 
 <style scoped>

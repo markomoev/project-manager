@@ -40,11 +40,17 @@ const closePopup = () => {
 };
 
 defineExpose({ addToList });
+
+//Deleting a project
+const deleteProject = (id) => {
+  projectIds.value = projectIds.value.filter((pid) => pid !== id);
+  localStorage.removeItem(`project-${id}`);
+};
 </script>
 
 <template>
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full max-w-screen-xl mx-auto px-4 py-6"
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-12 md:gap-16 lg:gap-20 w-full max-w-[1600px] px-4 py-6 mx-auto"
   >
     <ProjectCard
       v-for="id in projectIds"
@@ -56,6 +62,7 @@ defineExpose({ addToList });
     <ProjectCardPopup
       v-if="activeProjectId"
       :project-id="activeProjectId"
+      @del="deleteProject"
       @close="closePopup"
     />
   </div>

@@ -41,10 +41,8 @@ A modern, responsive project management app built with **Vue 3** and **Vite**.
 - Each card shows the project name, description, status, and a link.
 - Cards are stored in your browser’s localStorage.
 
-## License
 
-MIT
+## Versions
 
----
-
-\*Made with Vue 3 + Vite
+- 1.0 - Functional project adding button with list for container
+- 1.1 - View project details button (Popup for every project added)

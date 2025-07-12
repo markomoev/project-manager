@@ -1,5 +1,5 @@
 <script setup>
-import { readonly, ref } from "vue";
+import { ref } from "vue";
 
 // Exporting the close emit to the Header
 const emit = defineEmits(["close", "project-added"]);
@@ -14,7 +14,7 @@ const inProgress = ref(false);
 const completed = ref(false);
 const link = ref("");
 
-// Creating the object for the projects
+// Creating the object for every project
 const project = ref({});
 
 const addProject = async () => {

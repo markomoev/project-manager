@@ -34,13 +34,13 @@ const togglePopup = () => {
         'sm:ml-[15%]': true,
       }"
     >
-      <h1 class="text-xl sm:text-2xl font-bold text-emerald-200">
+      <h1 class="text-2xl font-bold text-emerald-200">
         Welcome<span class="hidden sm:inline">,</span>
       </h1>
       <!-- Input shown separately on mobile, inline on desktop -->
       <input
         v-model="username"
-        class="bg-transparent text-emerald-100 font-semibold px-2 py-1 mt-1 sm:mt-0 sm:ml-2 focus:outline-none placeholder:text-emerald-300 text-center text-lg sm:text-base sm:text-left"
+        class="text-xl bg-transparent text-emerald-100 font-bold px-2 py-1 mt-1 sm:mt-0 sm:ml-2 focus:outline-none placeholder:text-emerald-300 text-center sm:text-left"
         placeholder="Enter your name"
       />
     </div>
