@@ -1,6 +1,12 @@
+Got it! Here’s a more concise version with the update marked as **v1.2**, keeping it clear but shorter:
+
+---
+
 # Project Manager
 
-A modern, responsive project management app built with **Vue 3** and **Vite**.
+A modern, responsive project management app built with **Vue 3** and **Vite**, designed to help you organize and track projects seamlessly.
+
+---
 
 ## Features
 
@@ -10,11 +16,15 @@ A modern, responsive project management app built with **Vue 3** and **Vite**.
 - Status indicator and link for each project
 - Data persistence using localStorage
 
+---
+
 ## Tech Stack
 
 - [Vue 3](https://vuejs.org/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
+
+---
 
 ## Getting Started
 
@@ -31,18 +41,39 @@ A modern, responsive project management app built with **Vue 3** and **Vite**.
    ```
 
 3. **Build for production:**
+
    ```sh
    npm run build
    ```
 
+---
+
 ## Usage
 
-- Click "Add Project" to create a new project card.
+- Click **Add Project** to create a new project card.
 - Each card shows the project name, description, status, and a link.
-- Cards are stored in your browser’s localStorage.
+- Cards and project details are stored in your browser’s localStorage.
+- Click on project cards to open a detailed popup with options to edit or delete.
 
+---
 
-## Versions
+## Version History
 
-- 1.0 - Functional project adding button with list for container
-- 1.1 - View project details button (Popup for every project added)
+### v1.0
+
+- Basic project adding and listing functionality.
+
+### v1.1
+
+- Added project detail popup modal.
+
+### v1.2 (latest)
+
+- Improved popup buttons with cohesive, subtle styling aligned with overall design.
+- Unique, easily accessible delete button with larger icon.
+- Responsive button layouts for all screen sizes.
+- Enhanced editing experience with clear states and smooth interactions.
+
+---
+
+Let me know if you want me to save this as a markdown file or tweak it further!

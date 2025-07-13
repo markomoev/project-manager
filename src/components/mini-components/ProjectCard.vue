@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, onBeforeUnmount } from "vue";
 import ProjectCardPopup from "./ProjectCardPopup.vue";
 
 //Getting the project Id
@@ -36,6 +36,23 @@ const emit = defineEmits(["open"]);
 const handleOpenPopup = () => {
   emit("open", props.projectId);
 };
+
+//Updating the project, when it is edited
+onMounted(() => {
+  loadProject();
+});
+
+function loadProject() {
+  const data = localStorage.getItem(`project-${props.projectId}`);
+
+  if (data) {
+    project.value = JSON.parse(data);
+  }
+}
+
+function handleUpdatedProject() {
+  loadProject();
+}
 </script>
 
 <template>
@@ -127,8 +144,10 @@ const handleOpenPopup = () => {
   </div>
 
   <ProjectCardPopup
+    :project-id="project.id"
     v-if="cardPopupStatus"
     @del="() => emit('del', props.projectId)"
+    @update="handleUpdatedProject"
   />
 </template>
 
