@@ -69,7 +69,3 @@ A modern, responsive project management app built with **Vue 3** and **Vite**, d
 - Unique, easily accessible delete button with larger icon.
 - Responsive button layouts for all screen sizes.
 - Enhanced editing experience with clear states and smooth interactions.
-
----
-
-Let me know if you want me to save this as a markdown file or tweak it further!
