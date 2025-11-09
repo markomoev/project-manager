@@ -1,7 +1,3 @@
-Got it! Here’s a more concise version with the update marked as **v1.2**, keeping it clear but shorter:
-
----
-
 # Project Manager
 
 A modern, responsive project management app built with **Vue 3** and **Vite**, designed to help you organize and track projects seamlessly.
